@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingLeft="26dp"
+        android:paddingRight="26dp"
+        android:paddingTop="150dp"
+        android:gravity="center_horizontal">
+
+        <!-- Campo: Nome -->
+        <EditText
+            android:id="@+id/inputNome"
+            android:hint="Nome completo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Campo: Email -->
+        <EditText
+            android:id="@+id/inputEmail"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Campo: Senha -->
+        <EditText
+            android:id="@+id/inputSenha"
+            android:hint="Senha"
+            android:inputType="textPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Botão: Selecionar Foto -->
+        <Button
+            android:id="@+id/botaoFoto"
+            android:text="Selecionar Foto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp" />
+
+        <!-- Campo: Nome do contato -->
+        <EditText
+            android:id="@+id/inputNomeContato"
+            android:hint="Nome do contato de emergência"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Campo: Telefone do contato -->
+        <EditText
+            android:id="@+id/inputTelefoneContato"
+            android:hint="Telefone do contato"
+            android:inputType="phone"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <!-- Botão: Cadastrar -->
+        <Button
+            android:id="@+id/botaoCadastrar"
+            android:text="Cadastrar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp" />
+
+    </LinearLayout>
+</ScrollView>
