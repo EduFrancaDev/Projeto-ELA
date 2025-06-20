@@ -6,6 +6,19 @@
     android:background="#232439"
     android:padding="24dp">
 
+    <ImageButton
+        android:id="@+id/btnPerfil"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/ic_perfil"
+        android:background="@android:color/transparent"
+        android:scaleType="centerCrop"
+        android:contentDescription="Ver perfil"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp" />
+
     <!-- Título -->
     <TextView
         android:id="@+id/titulo"
@@ -30,83 +43,145 @@
         app:layout_constraintTop_toBottomOf="@id/titulo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="32dp"/>
+        android:layout_marginTop="40dp" />
 
     <!-- Card de chamado ativo -->
     <LinearLayout
         android:id="@+id/cardChamadoAtivo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:background="#383A5B"
         android:orientation="vertical"
         android:padding="16dp"
-        android:background="#383A5B"
         android:visibility="gone"
-        app:layout_constraintTop_toBottomOf="@id/titulo"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="32dp">
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titulo">
 
         <TextView
             android:id="@+id/textoChamado"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
             android:text="Chamado ativo em andamento"
             android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            android:layout_marginBottom="12dp" />
+            android:textSize="18sp" />
 
         <Button
             android:id="@+id/btnFinalizarChamado"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Finalizar chamado"
-            android:visibility="gone" />
+            android:visibility="visible" />
 
         <!-- Pergunta de confirmação -->
         <TextView
             android:id="@+id/perguntaConfirmacao"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Foi um chamado acidental ou intencional?"
+            android:layout_marginTop="16dp"
+            android:text="Você chamou a E.L.A. Posso confirmar ou foi um acidente?"
             android:textColor="#FFFFFF"
-            android:textSize="16sp"
-            android:layout_marginTop="16dp" />
+            android:textSize="16sp" />
 
         <!-- Botões: Abortar / Continuar -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal"
             android:layout_marginTop="8dp"
-            android:gravity="center">
+            android:gravity="center"
+            android:orientation="horizontal">
 
             <Button
                 android:id="@+id/btnAbortar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Abortar"
-                android:backgroundTint="#D32F2F" />
+                android:backgroundTint="#D32F2F"
+                android:text="Cancelar" />
 
             <Button
                 android:id="@+id/btnContinuar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Continuar"
                 android:layout_marginStart="16dp"
-                android:backgroundTint="#6A1B9A"
+                android:backgroundTint="#664FA3"
+                android:text="Confirmar"
                 android:textColor="#FFFFFF" />
         </LinearLayout>
     </LinearLayout>
 
+    <!-- Card de confirmação final -->
+
     <!-- Botão para histórico -->
+
+    <LinearLayout
+        android:id="@+id/cardConfirmacaoFinal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:background="#383A5B"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/cardChamadoAtivo">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="12dp"
+            android:text="Seu chamado foi encerrado. Esse chamado foi acidental ou intencional?"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/btnAcidental"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:backgroundTint="#757575"
+                android:text="Acidental"
+                android:textColor="#FFFFFF" />
+
+            <Button
+                android:id="@+id/btnIntencional"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:backgroundTint="#4CAF50"
+                android:text="Intencional"
+                android:textColor="#FFFFFF" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnContatosSeguranca"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:text="Contatos de segurança"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnHistorico" />
+
     <Button
         android:id="@+id/btnHistorico"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
         android:text="Ver histórico de chamados"
-        android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@id/cardChamadoAtivo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintTop_toBottomOf="@id/cardConfirmacaoFinal" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

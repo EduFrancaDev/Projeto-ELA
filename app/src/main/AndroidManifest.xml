@@ -14,7 +14,7 @@
         android:theme="@style/Theme.AppAndroid"
         tools:targetApi="31">
 
-        <!-- Tela de cadastro (inicial no momento) -->
+        <!-- Tela de cadastro (inicial) -->
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -29,6 +29,12 @@
 
         <!-- Tela de histórico -->
         <activity android:name=".HistoricoActivity" />
+
+        <!-- Tela de perfil -->
+        <activity android:name=".PerfilActivity" />
+
+        <activity android:name=".ContatosSegurancaActivity" />
+
 
     </application>
 

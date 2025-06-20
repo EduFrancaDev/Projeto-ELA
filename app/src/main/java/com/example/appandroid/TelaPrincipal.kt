@@ -23,6 +23,11 @@ class TelaPrincipal : AppCompatActivity() {
         val btnContinuar = findViewById<Button>(R.id.btnContinuar)
         val pergunta = findViewById<TextView>(R.id.perguntaConfirmacao)
         val btnHistorico = findViewById<Button>(R.id.btnHistorico)
+        val btnPerfil = findViewById<ImageButton>(R.id.btnPerfil)
+        val cardConfirmacaoFinal = findViewById<LinearLayout>(R.id.cardConfirmacaoFinal)
+        val btnAcidental = findViewById<Button>(R.id.btnAcidental)
+        val btnIntencional = findViewById<Button>(R.id.btnIntencional)
+        val btnContatosSeguranca = findViewById<Button>(R.id.btnContatosSeguranca)
 
         // Oculta o botão "Finalizar chamado" no início
         btnFinalizar.visibility = View.GONE
@@ -33,7 +38,7 @@ class TelaPrincipal : AppCompatActivity() {
         // Timer de 60 segundos para confirmação
         timer = object : CountDownTimer(60000, 1000) {
             override fun onTick(millisUntilFinished: Long) {
-                pergunta.text = "Foi um chamado acidental ou intencional? (${millisUntilFinished / 1000}s)"
+                pergunta.text = "Você chamou a E.L.A. Posso confirmar ou foi um acidente? (${millisUntilFinished / 1000}s)"
             }
 
             override fun onFinish() {
@@ -41,16 +46,9 @@ class TelaPrincipal : AppCompatActivity() {
                 btnAbortar.visibility = View.GONE
                 btnContinuar.visibility = View.GONE
                 btnFinalizar.visibility = View.VISIBLE
-                // Aqui você pode acionar backend ou notificações, se quiser
             }
         }
         timer.start()
-
-        btnFinalizar.setOnClickListener {
-            chamadoAtivo = false
-            atualizarStatusChamado(chamadoAtivo, cardChamado, textoSemChamado)
-            timer.cancel()
-        }
 
         btnAbortar.setOnClickListener {
             chamadoAtivo = false
@@ -66,8 +64,38 @@ class TelaPrincipal : AppCompatActivity() {
             timer.cancel()
         }
 
+        btnFinalizar.setOnClickListener {
+            // Oculta chamado e exibe o card de confirmação final
+            cardChamado.visibility = View.GONE
+            cardConfirmacaoFinal.visibility = View.VISIBLE
+        }
+
+        btnAcidental.setOnClickListener {
+            // Apenas fecha o card
+            cardConfirmacaoFinal.visibility = View.GONE
+            textoSemChamado.visibility = View.VISIBLE
+            Toast.makeText(this, "Chamado descartado.", Toast.LENGTH_SHORT).show()
+        }
+
+        btnIntencional.setOnClickListener {
+            // Aqui salvaríamos no histórico (futuro)
+            cardConfirmacaoFinal.visibility = View.GONE
+            textoSemChamado.visibility = View.VISIBLE
+            Toast.makeText(this, "Chamado registrado no histórico.", Toast.LENGTH_SHORT).show()
+        }
+
         btnHistorico.setOnClickListener {
             val intent = Intent(this, HistoricoActivity::class.java)
+            startActivity(intent)
+        }
+
+        btnPerfil.setOnClickListener {
+            val intent = Intent(this, PerfilActivity::class.java)
+            startActivity(intent)
+        }
+
+        btnContatosSeguranca.setOnClickListener {
+            val intent = Intent(this, ContatosSegurancaActivity::class.java)
             startActivity(intent)
         }
     }
