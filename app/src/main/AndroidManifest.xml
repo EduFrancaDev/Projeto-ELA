@@ -3,6 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.appandroid">
 
+    <!-- ✅ Permissão obrigatória para Android 13+ -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -14,7 +17,7 @@
         android:theme="@style/Theme.AppAndroid"
         tools:targetApi="31">
 
-        <!-- Tela de cadastro (inicial) -->
+        <!-- 📲 Tela inicial (cadastro/login) -->
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -24,17 +27,22 @@
             </intent-filter>
         </activity>
 
-        <!-- Tela principal (chamado ativo) -->
+        <!-- 🟣 Tela principal do chamado -->
         <activity android:name=".TelaPrincipal" />
 
-        <!-- Tela de histórico -->
+        <!-- 📘 Histórico de chamados -->
         <activity android:name=".HistoricoActivity" />
 
-        <!-- Tela de perfil -->
+        <!-- 👤 Tela de perfil -->
         <activity android:name=".PerfilActivity" />
 
+        <!-- 🛡️ Tela de contatos de segurança -->
         <activity android:name=".ContatosSegurancaActivity" />
 
+        <!-- 🔔 BroadcastReceivers para notificações -->
+        <receiver android:name=".ConfirmReceiver" />
+        <receiver android:name=".CancelReceiver" />
+        <receiver android:name=".AutoConfirmReceiver" />
 
     </application>
 

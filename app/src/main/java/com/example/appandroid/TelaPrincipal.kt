@@ -1,11 +1,15 @@
 package com.example.appandroid
 
+import android.Manifest
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.os.CountDownTimer
 import android.view.View
 import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import com.example.appandroid.NotificationHelper
 
 class TelaPrincipal : AppCompatActivity() {
 
@@ -15,6 +19,18 @@ class TelaPrincipal : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.tela_principal)
+
+        // ✅ Parte 1: Cria canal de notificação
+        NotificationHelper.createNotificationChannel(this)
+
+        // ✅ Parte 2: Pede permissão no Android 13+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            ActivityCompat.requestPermissions(
+                this,
+                arrayOf(Manifest.permission.POST_NOTIFICATIONS),
+                100
+            )
+        }
 
         val cardChamado = findViewById<LinearLayout>(R.id.cardChamadoAtivo)
         val textoSemChamado = findViewById<TextView>(R.id.semChamadoText)
@@ -28,14 +44,12 @@ class TelaPrincipal : AppCompatActivity() {
         val btnAcidental = findViewById<Button>(R.id.btnAcidental)
         val btnIntencional = findViewById<Button>(R.id.btnIntencional)
         val btnContatosSeguranca = findViewById<Button>(R.id.btnContatosSeguranca)
+        val btnTestarNotificacao = findViewById<Button>(R.id.btnTestarNotificacao)
 
-        // Oculta o botão "Finalizar chamado" no início
         btnFinalizar.visibility = View.GONE
 
-        // Atualiza a interface com base no estado inicial
         atualizarStatusChamado(chamadoAtivo, cardChamado, textoSemChamado)
 
-        // Timer de 60 segundos para confirmação
         timer = object : CountDownTimer(60000, 1000) {
             override fun onTick(millisUntilFinished: Long) {
                 pergunta.text = "Você chamou a E.L.A. Posso confirmar ou foi um acidente? (${millisUntilFinished / 1000}s)"
@@ -65,38 +79,37 @@ class TelaPrincipal : AppCompatActivity() {
         }
 
         btnFinalizar.setOnClickListener {
-            // Oculta chamado e exibe o card de confirmação final
             cardChamado.visibility = View.GONE
             cardConfirmacaoFinal.visibility = View.VISIBLE
         }
 
         btnAcidental.setOnClickListener {
-            // Apenas fecha o card
             cardConfirmacaoFinal.visibility = View.GONE
             textoSemChamado.visibility = View.VISIBLE
             Toast.makeText(this, "Chamado descartado.", Toast.LENGTH_SHORT).show()
         }
 
         btnIntencional.setOnClickListener {
-            // Aqui salvaríamos no histórico (futuro)
             cardConfirmacaoFinal.visibility = View.GONE
             textoSemChamado.visibility = View.VISIBLE
             Toast.makeText(this, "Chamado registrado no histórico.", Toast.LENGTH_SHORT).show()
         }
 
         btnHistorico.setOnClickListener {
-            val intent = Intent(this, HistoricoActivity::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, HistoricoActivity::class.java))
         }
 
         btnPerfil.setOnClickListener {
-            val intent = Intent(this, PerfilActivity::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, PerfilActivity::class.java))
         }
 
         btnContatosSeguranca.setOnClickListener {
-            val intent = Intent(this, ContatosSegurancaActivity::class.java)
-            startActivity(intent)
+            startActivity(Intent(this, ContatosSegurancaActivity::class.java))
+        }
+
+        // 🔔 Teste da notificação com cronômetro
+        btnTestarNotificacao.setOnClickListener {
+            NotificationHelper.sendLiveCountdownNotification(this, token = "teste123")
         }
     }
 
