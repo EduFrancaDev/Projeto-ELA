@@ -23,33 +23,39 @@
         android:theme="@style/Theme.AppAndroid"
         tools:targetApi="31">
 
-        <!-- 📲 Tela inicial -->
+        <!-- 🔑 Login como ponto de entrada -->
         <activity
-            android:name=".MainActivity"
+            android:name=".LoginActivity"
             android:exported="true"
             android:windowSoftInputMode="adjustPan">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
 
+        <!-- 📲 Tela de cadastro / MainActivity (agora não é mais launcher) -->
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:windowSoftInputMode="adjustPan" />
+
         <!-- 🟣 Tela principal do chamado -->
-        <activity android:name=".TelaPrincipal" />
+        <activity android:name=".TelaPrincipal" android:exported="true"/>
 
         <!-- 📘 Histórico de chamados -->
-        <activity android:name=".HistoricoActivity" />
+        <activity android:name=".HistoricoActivity" android:exported="true"/>
 
         <!-- 👤 Tela de perfil -->
-        <activity android:name=".PerfilActivity" />
+        <activity android:name=".PerfilActivity" android:exported="true"/>
 
         <!-- 🛡️ Tela de contatos de segurança -->
-        <activity android:name=".ContatosSegurancaActivity" />
+        <activity android:name=".ContatosSegurancaActivity" android:exported="true"/>
 
         <!-- 🔔 BroadcastReceivers para notificações -->
-        <receiver android:name=".ConfirmReceiver" />
-        <receiver android:name=".CancelReceiver" />
-        <receiver android:name=".AutoConfirmReceiver" />
+        <receiver android:name=".ConfirmReceiver" android:exported="false"/>
+        <receiver android:name=".CancelReceiver" android:exported="false"/>
+        <receiver android:name=".AutoConfirmReceiver" android:exported="false"/>
 
     </application>
 </manifest>

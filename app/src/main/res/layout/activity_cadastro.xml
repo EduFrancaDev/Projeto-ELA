@@ -26,10 +26,10 @@
         <!-- Campo: Nome -->
         <EditText
             android:id="@+id/inputNome"
-            android:hint="Nome Completo"
-            android:imeOptions="actionNext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="Nome Completo"
+            android:imeOptions="actionNext"
             android:layout_marginTop="12dp"
             android:background="@drawable/campo_cadastro_bg"
             android:padding="12dp"
@@ -40,10 +40,10 @@
         <!-- Campo: CPF -->
         <EditText
             android:id="@+id/inputCPF"
-            android:hint="CPF"
-            android:imeOptions="actionNext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="CPF"
+            android:imeOptions="actionNext"
             android:layout_marginTop="12dp"
             android:background="@drawable/campo_cadastro_bg"
             android:padding="12dp"
@@ -54,11 +54,11 @@
         <!-- Campo: Email -->
         <EditText
             android:id="@+id/inputEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:hint="Email"
             android:imeOptions="actionNext"
             android:inputType="textEmailAddress"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:background="@drawable/campo_cadastro_bg"
             android:padding="12dp"
@@ -69,11 +69,11 @@
         <!-- Campo: Senha -->
         <EditText
             android:id="@+id/inputSenha"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:hint="Senha"
             android:imeOptions="actionNext"
             android:inputType="textPassword"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
             android:background="@drawable/campo_cadastro_bg"
             android:padding="12dp"
@@ -84,10 +84,10 @@
         <!-- Campo: Nome do contato -->
         <EditText
             android:id="@+id/inputNomeContato"
-            android:hint="Nome do contato de emergência"
-            android:imeOptions="actionNext"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="Nome do contato de emergência"
+            android:imeOptions="actionNext"
             android:layout_marginTop="12dp"
             android:background="@drawable/campo_cadastro_bg"
             android:padding="12dp"
@@ -98,12 +98,11 @@
         <!-- Campo: Telefone do contato -->
         <EditText
             android:id="@+id/inputTelefoneContato"
-            android:hint="Telefone do contato de emergência"
-            android:imeOptions="actionDone"
-
-            android:inputType="phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:hint="Telefone do contato de emergência"
+            android:imeOptions="actionDone"
+            android:inputType="phone"
             android:layout_marginTop="12dp"
             android:background="@drawable/campo_cadastro_bg"
             android:padding="12dp"
@@ -125,7 +124,14 @@
             android:fontFamily="@font/cynthonextbold"
             android:textSize="20sp" />
 
-
-
+        <!-- Link para voltar ao login -->
+        <TextView
+            android:id="@+id/tvLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Já tem uma conta? Faça Login"
+            android:textSize="14sp"
+            android:textColor="#BBBBBB"
+            android:layout_marginTop="16dp"/>
     </LinearLayout>
 </ScrollView>
