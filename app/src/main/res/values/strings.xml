@@ -5,6 +5,10 @@
 
     <!-- Descrição de conteúdo -->
     <string name="desc_perfil">Ver perfil</string>
+    <string name="desc_logo">Logotipo do aplicativo</string>
+
+    <!-- Títulos -->
+    <string name="titulo_historico">Histórico de chamados</string>
 
     <!-- Estados -->
     <string name="sem_chamado">Não há chamados ativos.</string>
@@ -17,9 +21,16 @@
     <string name="btn_confirmar">Confirmar</string>
     <string name="btn_acidental">Acidental</string>
     <string name="btn_intencional">Intencional</string>
+    <string name="btn_voltar_historico">Voltar</string>
 
     <!-- Ações secundárias -->
-    <string name="btn_historico">Ver histórico de chamadas</string>
+    <string name="btn_historico">Ver histórico de chamados</string>
     <string name="btn_contatos_seguranca">Contatos de segurança</string>
     <string name="btn_testar_notificacao">Testar Notificação</string>
+
+    <string name="desc_foto_contato">Foto do contato</string>
+    <string name="editar_contato">Editar contato</string>
+    <string name="excluir_contato">Excluir contato</string>
+    <string name="btn_adicionar_contato_seguranca">Adicionar contato de segurança</string>
+
 </resources>

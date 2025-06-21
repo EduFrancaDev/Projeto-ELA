@@ -1,37 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/scrollHistorico"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#232439"
+    android:background="#4B0A26"
     android:padding="24dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
+        <!-- Logo no topo, igual à tela de login -->
+
+
+        <ImageView
+            android:id="@+id/logo"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="20dp"
+            android:padding="24dp"
+            android:src="@drawable/ic_logo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/titulo" />
 
         <TextView
+            android:id="@+id/tvTituloHistorico"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/cynthonextbold"
             android:text="Histórico de chamados"
             android:textColor="#FFFFFF"
             android:textSize="22sp"
-            android:layout_marginBottom="16dp" />
+            android:layout_marginBottom="24dp"/>
 
-        <!-- Aqui você pode usar uma RecyclerView futuramente -->
-
-        <TextView
-            android:layout_width="wrap_content"
+        <!-- Container de chamados (substituir por RecyclerView futuramente) -->
+        <LinearLayout
+            android:id="@+id/containerChamados"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="- Chamado 1: 13/06/2025 - Emergência confirmada"
-            android:textColor="#CCCCCC" />
+            android:orientation="vertical">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="- Chamado 2: 14/06/2025 - Acidental"
-            android:textColor="#CCCCCC" />
+            <!-- Cada card representa um chamado -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="#34122E"
+                android:layout_marginBottom="16dp">
 
-        <!-- Adicione mais como quiser -->
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="- Chamado 1: 13/06/2025 - Emergência confirmada"
+                    android:fontFamily="@font/cynthonextbold"
+                    android:textColor="#FFFFFF"
+                    android:padding="16dp"/>
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="8dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="#34122E"
+                android:layout_marginBottom="16dp">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="- Chamado 2: 14/06/2025 - Emergência confirmada"
+                    android:fontFamily="@font/cynthonextbold"
+                    android:textColor="#FFFFFF"
+                    android:padding="16dp"/>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Exemplo de botão voltar, como na login -->
+            <Button
+                android:id="@+id/btnVoltarHistorico"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Voltar"
+                android:textAllCaps="false"
+                android:fontFamily="@font/cynthonextbold"
+                android:layout_gravity="center"
+                android:layout_marginTop="24dp"
+                android:paddingHorizontal="32dp"
+                android:paddingVertical="12dp"
+                android:backgroundTint="#E91E63"
+                android:textColor="#FFFFFF"/>
+
+        </LinearLayout>
     </LinearLayout>
 </ScrollView>

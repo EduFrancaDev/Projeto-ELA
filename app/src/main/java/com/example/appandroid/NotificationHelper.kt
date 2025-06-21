@@ -55,8 +55,8 @@ object NotificationHelper {
         val finishTime = System.currentTimeMillis() + 60000 // 60 segundos
 
         val notification = NotificationCompat.Builder(context, CHANNEL_ID)
-            .setSmallIcon(R.drawable.ic_perfil)
-            .setContentTitle("Chamado ativo")
+            .setSmallIcon(R.drawable.logo_app)
+            .setContentTitle("Status: Em andamento.")
             .setContentText("Ela está aguardando...")
             .setWhen(finishTime)
             .setUsesChronometer(true)
@@ -64,8 +64,8 @@ object NotificationHelper {
             .setOngoing(true)
             .setPriority(NotificationCompat.PRIORITY_HIGH)
             .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
-            .addAction(R.drawable.ic_perfil, "Cancelar", cancelPendingIntent)
-            .addAction(R.drawable.ic_perfil, "Confirmar", confirmPendingIntent)
+            .addAction(R.drawable.logo_app, "Cancelar", cancelPendingIntent)
+            .addAction(R.drawable.logo_app, "Confirmar", confirmPendingIntent)
             .build()
 
         with(NotificationManagerCompat.from(context)) {
@@ -94,9 +94,9 @@ object NotificationHelper {
         )
 
         val notification = NotificationCompat.Builder(context, CHANNEL_ID)
-            .setSmallIcon(R.drawable.ic_perfil)
+            .setSmallIcon(R.drawable.logo_app)
             .setContentTitle("E.L.A.")
-            .setContentText("Ela está ativa")
+            .setContentText("Ela está com você.")
             .setContentIntent(openPendingIntent)
             .setOngoing(true) // impede swipe
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)

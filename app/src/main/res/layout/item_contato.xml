@@ -1,49 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="12dp"
-    android:orientation="horizontal"
-    android:background="#383A5B"
-    android:layout_marginBottom="12dp">
-
-    <ImageView
-        android:id="@+id/fotoContato"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_marginEnd="12dp"
-        android:src="@drawable/ic_usuario_padrao"
-        android:scaleType="centerCrop"
-        android:background="@drawable/rounded_background"/>
+    android:layout_marginBottom="12dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="4dp"
+    app:cardBackgroundColor="#34122E">
 
     <LinearLayout
-        android:layout_width="0dp"
-        android:layout_weight="1"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
+        android:orientation="horizontal"
+        android:padding="12dp"
+        android:gravity="center_vertical">
 
-        <TextView
-            android:id="@+id/nomeContato"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Nome"
-            android:textColor="#FFFFFF"
-            android:textSize="16sp"/>
+        <!-- Foto opcional -->
+        <ImageView
+            android:id="@+id/fotoContato"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:src="@drawable/ic_usuario_padrao"
+            android:scaleType="centerCrop"
+            android:background="@drawable/rounded_background"
+            android:contentDescription="@string/desc_foto_contato"/>
 
-        <TextView
-            android:id="@+id/telefoneContato"
-            android:layout_width="wrap_content"
+        <!-- Dados do contato -->
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="1"
             android:layout_height="wrap_content"
-            android:text="Telefone"
-            android:textColor="#BBBBBB"
-            android:textSize="14sp"/>
+            android:orientation="vertical"
+            android:layout_marginStart="12dp">
 
-        <TextView
-            android:id="@+id/emailContato"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Email"
-            android:textColor="#BBBBBB"
-            android:textSize="14sp"/>
+            <TextView
+                android:id="@+id/nomeContato"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Nome"
+                android:fontFamily="@font/cynthonextbold"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                />
+
+            <TextView
+                android:id="@+id/telefoneContato"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="(00) 00000-0000"
+                android:textColor="#BBBBBB"
+                android:fontFamily="@font/cynthonextbold"
+                android:textSize="14sp"/>
+
+            <TextView
+                android:id="@+id/emailContato"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="email@exemplo.com"
+                android:fontFamily="@font/cynthonextbold"
+                android:textColor="#BBBBBB"
+                android:textSize="14sp"/>
+        </LinearLayout>
+
+        <!-- Botões de ação com padding e scaleType -->
+        <ImageButton
+            android:id="@+id/btnEditContato"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:padding="4dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_edit_icon"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/editar_contato"
+            android:tint="@null"
+            android:layout_marginStart="8dp"/>
+
+        <ImageButton
+            android:id="@+id/btnDeleteContato"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:padding="4dp"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_delete_icon"
+            android:background="@android:color/transparent"
+            android:contentDescription="@string/excluir_contato"
+            android:tint="@null"
+            android:layout_marginStart="8dp"/>
     </LinearLayout>
-</LinearLayout>
+</androidx.cardview.widget.CardView>
