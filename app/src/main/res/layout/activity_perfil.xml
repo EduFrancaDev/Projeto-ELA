@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="24dp"
-    android:background="#232439">
+    android:background="#4B0A26"
+    android:padding="24dp">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -11,28 +13,93 @@
         android:orientation="vertical"
         android:gravity="center_horizontal">
 
+        <!-- Logo/App ícone (opcional) -->
+
+        <!-- Título -->
+
         <ImageView
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:src="@drawable/ic_launcher_foreground"
-            android:contentDescription="Foto de perfil" />
+            android:id="@+id/logo"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:src="@drawable/ic_logo"
+            android:padding="24dp"
+            android:layout_marginTop="20dp"
+            app:layout_constraintTop_toBottomOf="@id/titulo"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
 
         <TextView
+            android:id="@+id/tvTituloPerfil"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nome: Fulana"
+            android:text="@string/titulo_perfil"
             android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            android:layout_marginTop="16dp" />
+            android:fontFamily="@font/cynthonextbold"
+            android:textSize="22sp"
+            android:layout_marginBottom="24dp"/>
 
-        <TextView
-            android:layout_width="wrap_content"
+        <!-- Card com dados do usuário -->
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Email: fulana@email.com"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp"
-            android:layout_marginTop="8dp" />
+            android:layout_marginBottom="24dp"
+            app:cardCornerRadius="8dp"
+            app:cardElevation="4dp"
+            app:cardBackgroundColor="#34122E">
 
-        <!-- Adicione mais informações aqui -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:gravity="center_horizontal">
+
+                <!-- Foto de perfil -->
+                <ImageView
+                    android:id="@+id/fotoPerfil"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:src="@drawable/avatar2"
+                    android:scaleType="centerCrop"
+                    android:background="@drawable/rounded_background"
+                    android:contentDescription="@string/desc_foto_perfil"
+                    android:layout_marginBottom="16dp"/>
+
+                <!-- Nome -->
+                <TextView
+                    android:id="@+id/tvNomePerfil"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Karol Karolina"
+                    android:fontFamily="@font/cynthonextbold"
+                    android:textColor="#FFFFFF"
+                    android:textSize="18sp"
+                    android:layout_marginBottom="8dp"/>
+
+                <!-- Email -->
+                <TextView
+                    android:id="@+id/tvEmailPerfil"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="kakarolina@email.com"
+                    android:fontFamily="@font/cynthonextbold"
+                    android:textColor="#BBBBBB"
+                    android:textSize="16sp"/>
+
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <!-- Botão Editar Perfil -->
+        <Button
+            android:id="@+id/btnEditarPerfil"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/editar_perfil"
+            android:textAllCaps="false"
+            android:backgroundTint="#E91E63"
+            android:textColor="#FFFFFF"
+            android:fontFamily="@font/cynthonextbold"
+            android:paddingVertical="12dp"/>
+
     </LinearLayout>
 </ScrollView>

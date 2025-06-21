@@ -33,4 +33,9 @@
     <string name="excluir_contato">Excluir contato</string>
     <string name="btn_adicionar_contato_seguranca">Adicionar contato de segurança</string>
 
+    <string name="titulo_perfil">Meu Perfil</string>
+    <string name="desc_foto_perfil">Foto de perfil</string>
+    <string name="editar_perfil">Editar Perfil</string>
+
+
 </resources>

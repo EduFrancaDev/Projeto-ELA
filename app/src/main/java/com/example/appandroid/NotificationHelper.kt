@@ -34,6 +34,8 @@ object NotificationHelper {
     }
 
     fun sendLiveCountdownNotification(context: Context, token: String) {
+        createNotificationChannel(context)
+
         val notificationId = 1001
 
         val confirmIntent = Intent(context, ConfirmReceiver::class.java).apply {
@@ -41,7 +43,8 @@ object NotificationHelper {
             putExtra("token", token)
         }
         val confirmPendingIntent = PendingIntent.getBroadcast(
-            context, 0, confirmIntent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+            context, 0, confirmIntent,
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
         )
 
         val cancelIntent = Intent(context, CancelReceiver::class.java).apply {
@@ -49,10 +52,11 @@ object NotificationHelper {
             putExtra("token", token)
         }
         val cancelPendingIntent = PendingIntent.getBroadcast(
-            context, 1, cancelIntent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+            context, 1, cancelIntent,
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
         )
 
-        val finishTime = System.currentTimeMillis() + 60000 // 60 segundos
+        val finishTime = System.currentTimeMillis() + 60_000L // 60 segundos
 
         val notification = NotificationCompat.Builder(context, CHANNEL_ID)
             .setSmallIcon(R.drawable.logo_app)
@@ -68,9 +72,7 @@ object NotificationHelper {
             .addAction(R.drawable.logo_app, "Confirmar", confirmPendingIntent)
             .build()
 
-        with(NotificationManagerCompat.from(context)) {
-            notify(notificationId, notification)
-        }
+        NotificationManagerCompat.from(context).notify(notificationId, notification)
 
         // Dispara confirmação automática após 60 segundos
         Handler(Looper.getMainLooper()).postDelayed({
@@ -79,18 +81,20 @@ object NotificationHelper {
                 putExtra("token", token)
             }
             context.sendBroadcast(intent)
-        }, 60000)
+        }, 60_000L)
     }
 
     fun sendPermanentActiveNotification(context: Context) {
+        createNotificationChannel(context)
+
         val notificationId = 1002
 
         val openIntent = Intent(context, TelaPrincipal::class.java).apply {
             flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         }
-
         val openPendingIntent = PendingIntent.getActivity(
-            context, 0, openIntent, PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
+            context, 0, openIntent,
+            PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
         )
 
         val notification = NotificationCompat.Builder(context, CHANNEL_ID)
@@ -98,13 +102,18 @@ object NotificationHelper {
             .setContentTitle("E.L.A.")
             .setContentText("Ela está com você.")
             .setContentIntent(openPendingIntent)
-            .setOngoing(true) // impede swipe
+            .setOngoing(true)
             .setPriority(NotificationCompat.PRIORITY_DEFAULT)
             .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
             .build()
 
-        with(NotificationManagerCompat.from(context)) {
-            notify(notificationId, notification)
-        }
+        NotificationManagerCompat.from(context).notify(notificationId, notification)
+    }
+
+    /**
+     * Invoca sua notificação real de emergência via ADB ou botão de disparo
+     */
+    fun triggerEmergencyNotification(context: Context, token: String = "DUMMY_TOKEN") {
+        sendLiveCountdownNotification(context, token)
     }
 }

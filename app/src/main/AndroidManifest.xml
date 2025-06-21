@@ -3,14 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.example.appandroid">
 
-    <!-- ✅ Permissões -->
+    <!-- Permissões -->
     <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
     <uses-permission android:name="android.permission.CAMERA"/>
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 
-    <!-- ✅ Declarando a câmera como OPCIONAL -->
-    <uses-feature android:name="android.hardware.camera" android:required="false" />
+    <!-- Câmera opcional -->
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
 
     <application
         android:allowBackup="true"
@@ -23,7 +23,7 @@
         android:theme="@style/Theme.AppAndroid"
         tools:targetApi="31">
 
-        <!-- 🔑 Login como ponto de entrada -->
+        <!-- Activities -->
         <activity
             android:name=".LoginActivity"
             android:exported="true"
@@ -34,28 +34,46 @@
             </intent-filter>
         </activity>
 
-        <!-- 📲 Tela de cadastro / MainActivity (agora não é mais launcher) -->
         <activity
             android:name=".MainActivity"
             android:exported="true"
-            android:windowSoftInputMode="adjustPan" />
+            android:windowSoftInputMode="adjustPan"/>
 
-        <!-- 🟣 Tela principal do chamado -->
-        <activity android:name=".TelaPrincipal" android:exported="true"/>
+        <activity
+            android:name=".TelaPrincipal"
+            android:exported="true"/>
 
-        <!-- 📘 Histórico de chamados -->
-        <activity android:name=".HistoricoActivity" android:exported="true"/>
+        <activity
+            android:name=".HistoricoActivity"
+            android:exported="true"/>
 
-        <!-- 👤 Tela de perfil -->
-        <activity android:name=".PerfilActivity" android:exported="true"/>
+        <activity
+            android:name=".PerfilActivity"
+            android:exported="true"/>
 
-        <!-- 🛡️ Tela de contatos de segurança -->
-        <activity android:name=".ContatosSegurancaActivity" android:exported="true"/>
+        <activity
+            android:name=".ContatosSegurancaActivity"
+            android:exported="true"/>
 
-        <!-- 🔔 BroadcastReceivers para notificações -->
-        <receiver android:name=".ConfirmReceiver" android:exported="false"/>
-        <receiver android:name=".CancelReceiver" android:exported="false"/>
-        <receiver android:name=".AutoConfirmReceiver" android:exported="false"/>
+        <!-- BroadcastReceivers das notificações principais -->
+        <receiver
+            android:name=".ConfirmReceiver"
+            android:exported="false"/>
+        <receiver
+            android:name=".CancelReceiver"
+            android:exported="false"/>
+        <receiver
+            android:name=".AutoConfirmReceiver"
+            android:exported="false"/>
+
+        <!-- Receiver de teste para disparar a notificação via ADB -->
+        <receiver
+            android:name=".NotificationTestReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.example.appandroid.ACTION_TEST_NOTIF"/>
+            </intent-filter>
+        </receiver>
 
     </application>
 </manifest>
