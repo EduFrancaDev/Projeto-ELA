@@ -2,60 +2,76 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#4B0A26"
     android:padding="24dp">
 
+
     <ImageButton
         android:id="@+id/btnPerfil"
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:src="@drawable/ic_perfil"
+        android:layout_width="85dp"
+        android:layout_height="85dp"
+        android:layout_marginTop="32dp"
         android:background="@android:color/transparent"
-        android:scaleType="centerCrop"
         android:contentDescription="Ver perfil"
-        app:layout_constraintTop_toTopOf="parent"
+        android:scaleType="centerCrop"
+        android:src="@drawable/avatar2"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"/>
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/titulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:fontFamily="@font/anekina"
         android:text="E.L.A."
         android:textColor="#FFFFFF"
-        android:textSize="24sp"
-        android:fontFamily="@font/anekina"
-        app:layout_constraintTop_toTopOf="parent"
+        android:textSize="40sp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/imgLogo"
+        android:layout_width="70dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="32dp"
+        android:adjustViewBounds="true"
+        android:contentDescription="Logo da E.L.A."
+        android:scaleType="centerInside"
+        android:src="@drawable/ic_logo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/semChamadoText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="120dp"
         android:text="Não há chamados ativos"
         android:textColor="#FFFFFF"
         android:textSize="18sp"
         android:visibility="visible"
-        app:layout_constraintTop_toBottomOf="@id/titulo"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="40dp"/>
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/titulo" />
 
-    <!-- Card de Chamado Ativo -->
     <LinearLayout
         android:id="@+id/cardChamadoAtivo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="140dp"
         android:background="#F8AFCC"
         android:orientation="vertical"
         android:padding="16dp"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/titulo">
 
@@ -126,17 +142,17 @@
             android:visibility="visible" />
     </LinearLayout>
 
-    <!-- Card de confirmação final -->
     <LinearLayout
         android:id="@+id/cardConfirmacaoFinal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="140dp"
         android:background="#F8AFCC"
         android:orientation="vertical"
         android:padding="16dp"
         android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cardChamadoAtivo">
 
@@ -169,48 +185,50 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:backgroundTint="#4CAF50"
+                android:backgroundTint="#E91E63"
                 android:fontFamily="@font/cynthonextbold"
                 android:text="Intencional"
                 android:textColor="#FFFFFF" />
         </LinearLayout>
     </LinearLayout>
 
-    <!-- Botões de navegação -->
+    <Button
+        android:id="@+id/btnTestarNotificacao"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:backgroundTint="#E91E63"
+        android:text="Testar Notificação"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btnContatosSeguranca" />
+
     <Button
         android:id="@+id/btnHistorico"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="236dp"
         android:backgroundTint="#E91E63"
         android:text="Ver histórico de chamados"
         android:textColor="#FFFFFF"
-        app:layout_constraintTop_toBottomOf="@id/cardConfirmacaoFinal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@id/cardConfirmacaoFinal" />
 
     <Button
         android:id="@+id/btnContatosSeguranca"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="4dp"
+        android:layout_marginTop="12dp"
         android:backgroundTint="#E91E63"
         android:text="Contatos de segurança"
         android:textColor="#FFFFFF"
-        app:layout_constraintTop_toBottomOf="@id/btnHistorico"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
-
-    <Button
-        android:id="@+id/btnTestarNotificacao"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:backgroundTint="#E91E63"
-        android:text="Testar Notificação"
-        android:textColor="#FFFFFF"
-        app:layout_constraintTop_toBottomOf="@id/btnContatosSeguranca"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@id/btnHistorico" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
