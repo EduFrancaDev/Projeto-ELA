@@ -1,3 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">App Android</string>
+    <!-- App -->
+    <string name="app_name">E.L.A.</string>
+
+    <!-- Descrição de conteúdo -->
+    <string name="desc_perfil">Ver perfil</string>
+
+    <!-- Estados -->
+    <string name="sem_chamado">Não há chamados ativos.</string>
+    <string name="chamado_ativo">Chamado ativo em andamento</string>
+    <string name="pergunta_confirmacao">Você chamou a E.L.A. Posso confirmar ou foi um acidente?</string>
+    <string name="pergunta_finalizacao">Seu chamado foi encerrado. Esse chamado foi acidental ou intencional?</string>
+
+    <!-- Botões internos -->
+    <string name="btn_cancelar">Cancelar</string>
+    <string name="btn_confirmar">Confirmar</string>
+    <string name="btn_acidental">Acidental</string>
+    <string name="btn_intencional">Intencional</string>
+
+    <!-- Ações secundárias -->
+    <string name="btn_historico">Ver histórico de chamadas</string>
+    <string name="btn_contatos_seguranca">Contatos de segurança</string>
+    <string name="btn_testar_notificacao">Testar Notificação</string>
 </resources>

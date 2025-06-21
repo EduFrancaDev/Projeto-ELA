@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#232439"
+    android:background="#4B0A26"
     android:padding="24dp">
 
     <ImageButton
@@ -17,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp" />
+        android:layout_marginEnd="8dp"/>
 
     <TextView
         android:id="@+id/titulo"
@@ -26,9 +27,10 @@
         android:text="E.L.A."
         android:textColor="#FFFFFF"
         android:textSize="24sp"
+        android:fontFamily="@font/anekina"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <TextView
         android:id="@+id/semChamadoText"
@@ -41,82 +43,100 @@
         app:layout_constraintTop_toBottomOf="@id/titulo"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="40dp" />
+        android:layout_marginTop="40dp"/>
 
+    <!-- Card de Chamado Ativo -->
     <LinearLayout
         android:id="@+id/cardChamadoAtivo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:background="#383A5B"
+        android:background="#F8AFCC"
         android:orientation="vertical"
         android:padding="16dp"
-        android:visibility="gone"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/titulo">
 
+        <!-- Texto fixo (opcional) -->
         <TextView
             android:id="@+id/textoChamado"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"
+            android:fontFamily="@font/cynthonextbold"
             android:text="Chamado ativo em andamento"
-            android:textColor="#FFFFFF"
-            android:textSize="18sp" />
-
-        <Button
-            android:id="@+id/btnFinalizarChamado"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Finalizar chamado"
+            android:textColor="#4A0A26"
+            android:textSize="18sp"
             android:visibility="visible" />
 
+        <!-- Pergunta com contagem regressiva -->
         <TextView
             android:id="@+id/perguntaConfirmacao"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
+            android:layout_marginBottom="12dp"
+            android:fontFamily="@font/cynthonextbold"
             android:text="Você chamou a E.L.A. Posso confirmar ou foi um acidente?"
-            android:textColor="#FFFFFF"
-            android:textSize="16sp" />
+            android:textColor="#4A0A26"
+            android:textSize="16sp"
+            android:visibility="visible" />
 
+        <!-- Botões de ação -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:gravity="center"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:visibility="visible">
 
             <Button
                 android:id="@+id/btnAbortar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#D32F2F"
-                android:text="Cancelar" />
+                android:fontFamily="@font/cynthonextbold"
+                android:text="Cancelar"
+                android:textColor="#FFFFFF"
+                android:visibility="visible" />
 
             <Button
                 android:id="@+id/btnContinuar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:backgroundTint="#664FA3"
+                android:backgroundTint="#E91E63"
+                android:fontFamily="@font/cynthonextbold"
                 android:text="Confirmar"
-                android:textColor="#FFFFFF" />
+                android:textColor="#FFFFFF"
+                android:visibility="visible" />
         </LinearLayout>
+
+        <!-- Botão “Finalizar chamado” só aparece após confirmação automática/manual -->
+        <Button
+            android:id="@+id/btnFinalizarChamado"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:backgroundTint="#E91E63"
+            android:fontFamily="@font/cynthonextbold"
+            android:text="Finalizar chamado"
+            android:textColor="#FFFFFF"
+            android:visibility="visible" />
     </LinearLayout>
 
+    <!-- Card de confirmação final -->
     <LinearLayout
         android:id="@+id/cardConfirmacaoFinal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="40dp"
-        android:background="#383A5B"
+        android:background="#F8AFCC"
         android:orientation="vertical"
         android:padding="16dp"
-        android:visibility="gone"
+        android:visibility="visible"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/cardChamadoAtivo">
 
@@ -124,8 +144,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="12dp"
+            android:fontFamily="@font/cynthonextbold"
             android:text="Seu chamado foi encerrado. Esse chamado foi acidental ou intencional?"
-            android:textColor="#FFFFFF"
+            android:textColor="#4A0A26"
             android:textSize="16sp" />
 
         <LinearLayout
@@ -139,6 +160,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:backgroundTint="#757575"
+                android:fontFamily="@font/cynthonextbold"
                 android:text="Acidental"
                 android:textColor="#FFFFFF" />
 
@@ -148,40 +170,47 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
                 android:backgroundTint="#4CAF50"
+                android:fontFamily="@font/cynthonextbold"
                 android:text="Intencional"
                 android:textColor="#FFFFFF" />
         </LinearLayout>
     </LinearLayout>
 
+    <!-- Botões de navegação -->
     <Button
         android:id="@+id/btnHistorico"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
+        android:backgroundTint="#E91E63"
         android:text="Ver histórico de chamados"
+        android:textColor="#FFFFFF"
         app:layout_constraintTop_toBottomOf="@id/cardConfirmacaoFinal"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <Button
         android:id="@+id/btnContatosSeguranca"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="4dp"
+        android:backgroundTint="#E91E63"
         android:text="Contatos de segurança"
+        android:textColor="#FFFFFF"
         app:layout_constraintTop_toBottomOf="@id/btnHistorico"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"/>
 
-    <!-- 🔔 Botão de teste da notificação -->
     <Button
         android:id="@+id/btnTestarNotificacao"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Testar Notificação"
         android:layout_marginTop="24dp"
+        android:backgroundTint="#E91E63"
+        android:text="Testar Notificação"
+        android:textColor="#FFFFFF"
         app:layout_constraintTop_toBottomOf="@id/btnContatosSeguranca"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent" />
+        app:layout_constraintEnd_toEndOf="parent"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
