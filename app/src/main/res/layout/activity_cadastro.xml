@@ -2,70 +2,130 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/main"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:background="#4B0A26">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:paddingLeft="26dp"
-        android:paddingRight="26dp"
-        android:paddingTop="150dp"
+        android:padding="24dp"
         android:gravity="center_horizontal">
+
+        <!-- Imagem da câmera -->
+        <ImageView
+            android:id="@+id/fotoPerfil"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/ic_camera"
+            android:background="@drawable/circle_background"
+            android:padding="24dp"
+            android:layout_marginBottom="24dp"
+            android:contentDescription="Foto de Perfil" />
 
         <!-- Campo: Nome -->
         <EditText
             android:id="@+id/inputNome"
-            android:hint="Nome completo"
+            android:hint="Nome Completo"
+            android:imeOptions="actionNext"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/campo_cadastro_bg"
+            android:padding="12dp"
+            android:textColor="#000000"
+            android:textColorHint="#888888"
+            android:fontFamily="@font/cynthonextbold" />
+
+        <!-- Campo: CPF -->
+        <EditText
+            android:id="@+id/inputCPF"
+            android:hint="CPF"
+            android:imeOptions="actionNext"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/campo_cadastro_bg"
+            android:padding="12dp"
+            android:textColor="#000000"
+            android:textColorHint="#888888"
+            android:fontFamily="@font/cynthonextbold" />
 
         <!-- Campo: Email -->
         <EditText
             android:id="@+id/inputEmail"
             android:hint="Email"
+            android:imeOptions="actionNext"
             android:inputType="textEmailAddress"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/campo_cadastro_bg"
+            android:padding="12dp"
+            android:textColor="#000000"
+            android:textColorHint="#888888"
+            android:fontFamily="@font/cynthonextbold" />
 
         <!-- Campo: Senha -->
         <EditText
             android:id="@+id/inputSenha"
             android:hint="Senha"
+            android:imeOptions="actionNext"
             android:inputType="textPassword"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
-
-        <!-- Botão: Selecionar Foto -->
-        <Button
-            android:id="@+id/botaoFoto"
-            android:text="Selecionar Foto"
-            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp" />
+            android:layout_marginTop="12dp"
+            android:background="@drawable/campo_cadastro_bg"
+            android:padding="12dp"
+            android:textColor="#000000"
+            android:textColorHint="#888888"
+            android:fontFamily="@font/cynthonextbold" />
 
         <!-- Campo: Nome do contato -->
         <EditText
             android:id="@+id/inputNomeContato"
             android:hint="Nome do contato de emergência"
+            android:imeOptions="actionNext"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/campo_cadastro_bg"
+            android:padding="12dp"
+            android:textColor="#000000"
+            android:textColorHint="#888888"
+            android:fontFamily="@font/cynthonextbold" />
 
         <!-- Campo: Telefone do contato -->
         <EditText
             android:id="@+id/inputTelefoneContato"
-            android:hint="Telefone do contato"
+            android:hint="Telefone do contato de emergência"
+            android:imeOptions="actionDone"
+
             android:inputType="phone"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/campo_cadastro_bg"
+            android:padding="12dp"
+            android:textColor="#000000"
+            android:textColorHint="#888888"
+            android:fontFamily="@font/cynthonextbold" />
 
         <!-- Botão: Cadastrar -->
-        <Button
+        <com.google.android.material.button.MaterialButton
             android:id="@+id/botaoCadastrar"
-            android:text="Cadastrar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp" />
+            android:layout_marginTop="24dp"
+            android:text="Cadastrar"
+            android:backgroundTint="#E6E1DF"
+            android:textColor="#4B0A26"
+            android:textStyle="bold"
+            android:padding="16dp"
+            android:fontFamily="@font/cynthonextbold"
+            android:textSize="20sp" />
+
+
 
     </LinearLayout>
 </ScrollView>
